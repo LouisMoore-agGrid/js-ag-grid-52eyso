@@ -1,0 +1,10 @@
+{
+  "name": "js-ag-grid",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "ag-charts-community": "^3.0.0",
+    "ag-grid-community": "23.2.1",
+    "ag-grid-enterprise": "23.2.1"
+  }
+}
