@@ -60,7 +60,7 @@ function makeButtonCellRenderer(params, col) {
     openCol = params.context.chevKeyMap[button.className];
   }
   let chevronState =
-    isExpanded && col == openCol ? './tree-open.svg' : 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/885e268e1a7cc8e71509ae5996744d25bb962530/assets/tree-closed.svg';
+    isExpanded && col == openCol ? 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/50413f659cdfbe903ec14d9a5d4b7cf175b76637/tree-open.svg' : 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg';
   button.setAttribute('src', chevronState);
   let span = document.createElement('span');
   container.style.alignItems = 'center';
@@ -104,7 +104,7 @@ const openDetail = (params, column, container) => {
   ) {
     if (params.node.expanded) {
       params.node.setExpanded(false);
-      container.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/885e268e1a7cc8e71509ae5996744d25bb962530/assets/tree-closed.svg');
+      container.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg');
       return;
     }
   }
@@ -118,7 +118,7 @@ const openDetail = (params, column, container) => {
   });
   let nodeRenderers = document.querySelectorAll(`.${className}`);
   nodeRenderers.forEach((renderer) => {
-    renderer.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/885e268e1a7cc8e71509ae5996744d25bb962530/assets/tree-closed.svg');
+    renderer.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg');
   });
   params.node.setExpanded(true);
   if (gridOptions.context.chevKeyMap) {
@@ -127,7 +127,7 @@ const openDetail = (params, column, container) => {
     gridOptions.context.chevKeyMap = {};
     gridOptions.context.chevKeyMap[container.className] = column;
   }
-  container.setAttribute('src', './tree-open.svg');
+  container.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/50413f659cdfbe903ec14d9a5d4b7cf175b76637/tree-open.svg');
 
   if (column == 'orders') {
     params.node.detailNode.setRowHeight(70);
