@@ -159,8 +159,8 @@ class CostFormDetail {
     let chosenSale = document.getElementById('salesInput').value;
     let continent = this.params.data.continent;
 
-    if (!this.params.myObj.newRecords) {
-      this.params.myObj.newRecords = {
+    if (!this.params.newRecords) {
+      this.params.newRecords = {
         Europe: [],
         'South America': [],
         'North America': [],
@@ -177,7 +177,7 @@ class CostFormDetail {
       product: chosenProduct,
     };
 
-    this.params.myObj.newRecords[continent].push(newRecord);
+    this.params.newRecords[continent].push(newRecord);
 
     const setNewMasterVal = (chosenVal, col) => {
       let chosenNumber = Number(chosenVal);

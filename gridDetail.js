@@ -6,10 +6,10 @@ class GridDetail {
   constructor(params) {
     this.params = params;
     this.rowData = params.data.data;
-    if (params.myObj.newRecords) {
+    if (params.newRecords) {
       let continent = this.params.data.continent
       this.rowData = this.rowData.concat(
-        params.myObj.newRecords[continent]
+        params.newRecords[continent]
       );
     }
   }

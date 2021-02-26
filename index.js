@@ -7,31 +7,33 @@ import 'ag-grid-enterprise';
 
 import * as ag from 'ag-grid-community'
 
+const treeOpen = 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/50413f659cdfbe903ec14d9a5d4b7cf175b76637/tree-open.svg'
 
+const treeClosed = 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg'
 
 var columnDefs =  [
     {
       field: 'continent',
       cellRenderer: (params) => {
-        return makeButtonCellRenderer(params, 'continent');
+        return makeMasterCellRenderer(params, 'continent');
       },
     },
     {
       field: 'sales',
       cellRenderer: (params) => {
-        return makeButtonCellRenderer(params, 'sales');
+        return makeMasterCellRenderer(params, 'sales');
       },
     },
     {
       field: 'cost',
       cellRenderer: (params) => {
-        return makeButtonCellRenderer(params, 'cost');
+        return makeMasterCellRenderer(params, 'cost');
       },
     },
     {
       field: 'orders',
       cellRenderer: (params) => {
-        return makeButtonCellRenderer(params, 'orders');
+        return makeMasterCellRenderer(params, 'orders');
       },
     },
   ],
@@ -42,29 +44,31 @@ const gridOptions = {
   masterDetail: true,
   detailCellRenderer: 'myDetailCellRenderer',
   detailCellRendererParams: {
-    myObj: {},
+    newRecords: null,
   },
   components: {
     myDetailCellRenderer: DetailCellRenderer,
   },
 }
 
-function makeButtonCellRenderer(params, col) {
+function makeMasterCellRenderer(params, col) {
   let isExpanded = params.node.expanded;
   let container = document.createElement('div');
-  let button = document.createElement('img');
-  //have to use regex to trim because some continents have spaces
-  button.classList.add(`${params.node.data.continent.replace(/ /g, '')}-row`);
+  let chevron = document.createElement('img');
+  let span = document.createElement('span');
   let openCol = null;
+
+  //have to use regex to trim because some continents have spaces
+  chevron.classList.add(`${params.node.data.continent.replace(/ /g, '')}-row`);
+  chevron.classList.add('pointer-class')
+  container.classList.add('master-row-container')
+
   if (params.context) {
-    openCol = params.context.chevKeyMap[button.className];
+    openCol = params.context.chevKeyMap[chevron.className];
   }
   let chevronState =
-    isExpanded && col == openCol ? 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/50413f659cdfbe903ec14d9a5d4b7cf175b76637/tree-open.svg' : 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg';
-  button.setAttribute('src', chevronState);
-  let span = document.createElement('span');
-  container.style.alignItems = 'center';
-  container.style.display = 'flex';
+    isExpanded && col == openCol ? treeOpen : treeClosed;
+  chevron.setAttribute('src', chevronState);
 
   switch (col) {
     case 'continent':
@@ -72,24 +76,24 @@ function makeButtonCellRenderer(params, col) {
       break;
     case 'sales':
       span.innerText = params.value;
-      container.appendChild(button);
+      container.appendChild(chevron);
       break;
     case 'cost':
       span.innerText = params.value;
-      container.appendChild(button);
+      container.appendChild(chevron);
       break;
     case 'orders':
       span.innerText = 'orders form';
-      container.appendChild(button);
+      container.appendChild(chevron);
       break;
   }
 
-  button.addEventListener('click', (event) => {
-    let target = event.target;
+  chevron.addEventListener('click', (event) => {
+    let chevron= event.target;
     if (col === 'continent') {
       params.node.setExpanded(false);
     } else {
-      openDetail(params, col, target);
+      openDetail(params, col, chevron);
     }
   });
 
