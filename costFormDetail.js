@@ -5,104 +5,104 @@ class CostFormDetail {
     this.continents = {
       Europe: {
         countries: [
-          'Denmark',
-          'United Kingdom',
-          'Bulgaria',
-          'France',
-          'Germany',
-          'Latvia',
-          'Hungary',
-          'Ireland',
-          'Italy',
-          'Lithuania',
-        ],
+          "Denmark",
+          "United Kingdom",
+          "Bulgaria",
+          "France",
+          "Germany",
+          "Latvia",
+          "Hungary",
+          "Ireland",
+          "Italy",
+          "Lithuania"
+        ]
       },
-      'South America': {
+      "South America": {
         countries: [
-          'Argentina',
-          'Bolivia',
-          'Brazil',
-          'Chile',
-          'Colombia',
-          'Ecuador',
-          'Falkland Islands',
-          'French Guiana',
-          'Guyana',
-          'Paraguay',
-        ],
+          "Argentina",
+          "Bolivia",
+          "Brazil",
+          "Chile",
+          "Colombia",
+          "Ecuador",
+          "Falkland Islands",
+          "French Guiana",
+          "Guyana",
+          "Paraguay"
+        ]
       },
-      'North America': {
+      "North America": {
         countries: [
-          'United States',
-          'Mexico',
-          'Canada',
-          'Jamaica',
-          'Barbados',
-          'Dominica',
-          'Belize',
-          'Guadalupe',
-          'Trinidad and Tobago',
-          'Saint Vincent and the Grenadines',
-        ],
+          "United States",
+          "Mexico",
+          "Canada",
+          "Jamaica",
+          "Barbados",
+          "Dominica",
+          "Belize",
+          "Guadalupe",
+          "Trinidad and Tobago",
+          "Saint Vincent and the Grenadines"
+        ]
       },
       Asia: {
         countries: [
-          'China',
-          'Japan',
-          'India',
-          'Pakistan',
-          'Russia',
-          'Sri-Lanka',
-          'Iran',
-          'Vietnam',
-          'Bangladesh',
-          'Philippines',
-        ],
+          "China",
+          "Japan",
+          "India",
+          "Pakistan",
+          "Russia",
+          "Sri-Lanka",
+          "Iran",
+          "Vietnam",
+          "Bangladesh",
+          "Philippines"
+        ]
       },
       Africa: {
         countries: [
-          'Nigeria',
-          'Ethiopia',
-          'Egypt',
-          'Democratic Republic of the Congo',
-          'Tanzania',
-          'South Africa',
-          'Kenya',
-          'Uganda',
-          'Algeria',
-          'Sudan',
-        ],
+          "Nigeria",
+          "Ethiopia",
+          "Egypt",
+          "Democratic Republic of the Congo",
+          "Tanzania",
+          "South Africa",
+          "Kenya",
+          "Uganda",
+          "Algeria",
+          "Sudan"
+        ]
       },
       Australia: {
         countries: [
-          'Australia',
-          'Micronesia',
-          'Fiji',
-          'Kiribati',
-          'Marshall Islands',
-          'Nauru',
-          'New Zealand',
-          'Palau',
-          'Papua New Guinea',
-          'Samoa',
-        ],
+          "Australia",
+          "Micronesia",
+          "Fiji",
+          "Kiribati",
+          "Marshall Islands",
+          "Nauru",
+          "New Zealand",
+          "Palau",
+          "Papua New Guinea",
+          "Samoa"
+        ]
       },
       Antarctica: {
         countries: [
-          'Adélie Land',
-          'British Antarctic Territory',
-          'Ross Dependency',
-          'Peter I Island and Queen Maud Land',
-          'Australian Antarctic Territory',
-          'Chilean Antarctic Territory',
-          'Argentine Antarctica',
-        ],
-      },
+          "Adélie Land",
+          "British Antarctic Territory",
+          "Ross Dependency",
+          "Peter I Island and Queen Maud Land",
+          "Australian Antarctic Territory",
+          "Chilean Antarctic Territory",
+          "Argentine Antarctica"
+        ]
+      }
     };
   }
 
   eGui() {
-    let eGui = document.createElement('div');
+    let eGui = document.createElement("div");
     eGui.innerHTML = `<form id="formElement">
       <div>
       <p>
@@ -142,8 +142,8 @@ class CostFormDetail {
     </form>
 </div>`;
 
-    let button = eGui.querySelector('#applyBtn');
-    button.addEventListener('click', () => {
+    let button = eGui.querySelector("#applyBtn");
+    button.addEventListener("click", () => {
       this.buttonHandler();
     });
 
@@ -152,29 +152,29 @@ class CostFormDetail {
 
   buttonHandler() {
     let chosenCountry = document.getElementById(
-      this.params.data.continent + 'Countries'
+      this.params.data.continent + "Countries"
     ).value;
-    let chosenProduct = document.getElementById('productDropdown').value;
-    let chosenCost = document.getElementById('costInput').value;
-    let chosenSale = document.getElementById('salesInput').value;
+    let chosenProduct = document.getElementById("productDropdown").value;
+    let chosenCost = document.getElementById("costInput").value;
+    let chosenSale = document.getElementById("salesInput").value;
     let continent = this.params.data.continent;
 
     if (!this.params.newRecords) {
       this.params.newRecords = {
         Europe: [],
-        'South America': [],
-        'North America': [],
+        "South America": [],
+        "North America": [],
         Asia: [],
         Africa: [],
         Australia: [],
-        Antarctica: [],
+        Antarctica: []
       };
     }
     let newRecord = {
       country: chosenCountry,
       sales: Number(chosenSale),
       cost: Number(chosenCost),
-      product: chosenProduct,
+      product: chosenProduct
     };
 
     this.params.newRecords[continent].push(newRecord);
@@ -189,8 +189,8 @@ class CostFormDetail {
         this.params.node.setDataValue(col, newVal);
       }
     };
-    setNewMasterVal(chosenCost, 'cost');
-    setNewMasterVal(chosenSale, 'sales');
+    setNewMasterVal(chosenCost, "cost");
+    setNewMasterVal(chosenSale, "sales");
   }
 
   getDropDownList() {
@@ -198,10 +198,10 @@ class CostFormDetail {
     let countryList = this.continents[continent].countries;
 
     let dropDownHtml = `<select name="countries" style="width: 100px;" id="${continent}Countries">`;
-    countryList.forEach((country) => {
+    countryList.forEach(country => {
       dropDownHtml += `<option value="${country}">${country}</option>`;
     });
-    dropDownHtml += '</select>';
+    dropDownHtml += "</select>";
 
     return dropDownHtml;
   }
@@ -209,4 +209,5 @@ class CostFormDetail {
   getGui() {
     return this.eGui;
   }
-}export default CostFormDetail
+}
+export default CostFormDetail;

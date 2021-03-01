@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "ag-charts-community": "^3.1.0",
-    "ag-grid-community": "25.0.0",
-    "ag-grid-enterprise": "25.0.0"
+    "ag-grid-community": "^25.1.0",
+    "ag-grid-enterprise": "^25.1.0"
   }
 }

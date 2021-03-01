@@ -108,7 +108,7 @@ const openDetail = (params, column, container) => {
   ) {
     if (params.node.expanded) {
       params.node.setExpanded(false);
-      container.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg');
+      container.setAttribute('src', treeClosed);
       return;
     }
   }
@@ -122,7 +122,7 @@ const openDetail = (params, column, container) => {
   });
   let nodeRenderers = document.querySelectorAll(`.${className}`);
   nodeRenderers.forEach((renderer) => {
-    renderer.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/aacef9f45dae7ea5822c4b76bf1c981a74451435/tree-closed.svg');
+    renderer.setAttribute('src', treeClosed);
   });
   params.node.setExpanded(true);
   if (gridOptions.context.chevKeyMap) {
@@ -131,15 +131,16 @@ const openDetail = (params, column, container) => {
     gridOptions.context.chevKeyMap = {};
     gridOptions.context.chevKeyMap[container.className] = column;
   }
-  container.setAttribute('src', 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-grid-52eyso/50413f659cdfbe903ec14d9a5d4b7cf175b76637/tree-open.svg');
+  container.setAttribute('src', treeOpen);
 
+  if(params.node.detailNode)
   if (column == 'orders') {
     params.node.detailNode.setRowHeight(70);
-    params.api.onRowHeightChanged();
   } else {
     params.node.detailNode.setRowHeight(310);
-    params.api.onRowHeightChanged();
   }
+    params.api.onRowHeightChanged();
+    params.api.redrawRows({rowNodes:[params.node.detailNode]})
 };
 
 new ag.Grid(document.querySelector('#myGrid'), gridOptions);

@@ -923,4 +923,4 @@ var rowData = [
     cost: 36618
   }
 ];
-export default rowData
+export default rowData;
