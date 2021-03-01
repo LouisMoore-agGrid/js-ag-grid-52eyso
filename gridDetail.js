@@ -1,19 +1,21 @@
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "ag-grid-enterprise";
-import * as agGrid from "ag-grid-community";
+import 'ag-grid-community/dist/styles/ag-grid.css'; 
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import 'ag-grid-enterprise';
+import * as agGrid from 'ag-grid-community'
 class GridDetail {
   constructor(params) {
     this.params = params;
     this.rowData = params.data.data;
     if (params.newRecords) {
-      let continent = this.params.data.continent;
-      this.rowData = this.rowData.concat(params.newRecords[continent]);
+      let continent = this.params.data.continent
+      this.rowData = this.rowData.concat(
+        params.newRecords[continent]
+      );
     }
   }
 
   eGui() {
-    var eTemp = document.createElement("div");
+    var eTemp = document.createElement('div');
     eTemp.innerHTML = this.getTemplate();
     this.eGui = eTemp.firstElementChild;
 
@@ -26,20 +28,20 @@ class GridDetail {
   }
 
   setupDetailGrid() {
-    var eDetailGrid = this.eGui.querySelector(".full-width-grid");
+    var eDetailGrid = this.eGui.querySelector('.full-width-grid');
     var detailGridOptions = {
       columnDefs: [
-        { field: "country", rowGroup: true },
-        { field: "sales", aggFunc: "sum" },
-        { field: "cost" },
-        { field: "product", pivot: true }
+        { field: 'country', rowGroup: true },
+        { field: 'sales', aggFunc: 'sum' },
+        { field: 'cost' },
+        { field: 'product', pivot: true },
       ],
       defaultColDef: {
         flex: 1,
-        minWidth: 150
+        minWidth: 150,
       },
       pivotMode: true,
-      rowData: this.rowData
+      rowData: this.rowData,
     };
 
     new agGrid.Grid(eDetailGrid, detailGridOptions);
@@ -52,7 +54,7 @@ class GridDetail {
     var gridInfo = {
       id: rowId,
       api: detailGridOptions.api,
-      columnApi: detailGridOptions.columnApi
+      columnApi: detailGridOptions.columnApi,
     };
     masterGridApi.addDetailGridInfo(rowId, gridInfo);
   }
@@ -65,5 +67,4 @@ class GridDetail {
 
     return template;
   }
-}
-export default GridDetail;
+}export default GridDetail

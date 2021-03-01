@@ -40,6 +40,7 @@ var columnDefs =  [
 
 const gridOptions = {
   columnDefs: columnDefs,
+  detailRowAutoHeight: true,
   rowData: rowData,
   masterDetail: true,
   detailCellRenderer: 'myDetailCellRenderer',
@@ -134,12 +135,6 @@ const openDetail = (params, column, container) => {
   container.setAttribute('src', treeOpen);
 
   if(params.node.detailNode)
-  if (column == 'orders') {
-    params.node.detailNode.setRowHeight(70);
-  } else {
-    params.node.detailNode.setRowHeight(310);
-  }
-    params.api.onRowHeightChanged();
     params.api.redrawRows({rowNodes:[params.node.detailNode]})
 };
 

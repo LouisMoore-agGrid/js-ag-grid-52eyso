@@ -36,6 +36,7 @@ class PieChartDetail {
     });
 
     let container = document.createElement("div");
+    container.style.height = "310px"
     var options = {
       container: container,
       autoSize: true,
