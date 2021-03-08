@@ -11,7 +11,7 @@ class PieChartDetail {
   createChart() {
     let continent = this.params.data.continent;
     let rowData = this.params.data.data;
-    let newRecords = this.params.newRecords;
+    let newRecords = this.params.context.newRecords;
     let productACost = 0;
     let productBCost = 0;
     let productCCost = 0;

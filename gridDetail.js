@@ -6,10 +6,10 @@ class GridDetail {
   constructor(params) {
     this.params = params;
     this.rowData = params.data.data;
-    if (params.newRecords) {
+    if (params.context.newRecords) {
       let continent = this.params.data.continent
       this.rowData = this.rowData.concat(
-        params.newRecords[continent]
+        params.context.newRecords[continent]
       );
     }
   }
@@ -19,11 +19,7 @@ class GridDetail {
     eTemp.innerHTML = this.getTemplate();
     this.eGui = eTemp.firstElementChild;
 
-    this.setupDetailGrid(
-      this.params.data.callRecords,
-      this.params.api,
-      this.params.node.id
-    );
+    this.setupDetailGrid();
     return this.eGui;
   }
 

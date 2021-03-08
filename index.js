@@ -44,9 +44,6 @@ const gridOptions = {
   rowData: rowData,
   masterDetail: true,
   detailCellRenderer: 'myDetailCellRenderer',
-  detailCellRendererParams: {
-    newRecords: null,
-  },
   components: {
     myDetailCellRenderer: DetailCellRenderer,
   },
