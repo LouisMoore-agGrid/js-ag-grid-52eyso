@@ -88,11 +88,7 @@ function makeMasterCellRenderer(params, col) {
 
   chevron.addEventListener('click', (event) => {
     let chevron= event.target;
-    if (col === 'continent') {
-      params.node.setExpanded(false);
-    } else {
       openDetail(params, col, chevron);
-    }
   });
 
   container.appendChild(span);
@@ -100,18 +96,15 @@ function makeMasterCellRenderer(params, col) {
 }
 
 const openDetail = (params, column, container) => {
-  if (
-    gridOptions.context &&
-    gridOptions.context.chevKeyMap[container.className] === column
-  ) {
-    if (params.node.expanded) {
+  if (gridOptions.context
+      && gridOptions.context.chevKeyMap[container.className] === column
+      && params.node.expanded) {
       params.node.setExpanded(false);
       container.setAttribute('src', treeClosed);
       return;
-    }
   }
   gridOptions.context = { ...gridOptions.context, selectedDetail: column };
-  params.node.setExpanded(false);
+  // params.node.setExpanded(false);
   let className = '';
   container.classList.forEach((cssClass) => {
     if (cssClass.indexOf('row') != -1) {
