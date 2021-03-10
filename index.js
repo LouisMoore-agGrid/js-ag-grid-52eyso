@@ -104,7 +104,6 @@ const openDetail = (params, column, container) => {
       return;
   }
   gridOptions.context = { ...gridOptions.context, selectedDetail: column };
-  // params.node.setExpanded(false);
   let className = '';
   container.classList.forEach((cssClass) => {
     if (cssClass.indexOf('row') != -1) {
