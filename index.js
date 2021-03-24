@@ -14,9 +14,6 @@ const treeClosed = 'https://raw.githubusercontent.com/LouisMoore-agGrid/js-ag-gr
 var columnDefs =  [
     {
       field: 'continent',
-      cellRenderer: (params) => {
-        return makeMasterCellRenderer(params, 'continent');
-      },
     },
     {
       field: 'sales',
@@ -69,19 +66,12 @@ function makeMasterCellRenderer(params, col) {
   chevron.setAttribute('src', chevronState);
 
   switch (col) {
-    case 'continent':
-      span.innerText = params.value;
-      break;
-    case 'sales':
-      span.innerText = params.value;
-      container.appendChild(chevron);
-      break;
-    case 'cost':
-      span.innerText = params.value;
-      container.appendChild(chevron);
-      break;
     case 'orders':
       span.innerText = 'orders form';
+      container.appendChild(chevron);
+      break;
+    default:
+      span.innerText = params.value;
       container.appendChild(chevron);
       break;
   }
