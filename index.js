@@ -53,7 +53,6 @@ function makeMasterCellRenderer(params, col) {
   let span = document.createElement('span');
   let openCol = null;
 
-  //have to use regex to trim because some continents have spaces
   chevron.classList.add(`row-${params.node.data.id}`);
   chevron.classList.add('pointer-class')
   container.classList.add('master-container')
@@ -85,17 +84,17 @@ function makeMasterCellRenderer(params, col) {
   return container;
 }
 
-const openDetail = (params, column, chevron) => {
+const openDetail = (params, column, cellRenderer) => {
   if (gridOptions.context
-      && gridOptions.context.chevKeyMap[chevron.className] === column
+      && gridOptions.context.chevKeyMap[cellRenderer.className] === column
       && params.node.expanded) {
       params.node.setExpanded(false);
-      chevron.setAttribute('src', treeClosed);
+      cellRenderer.setAttribute('src', treeClosed);
       return;
   }
   gridOptions.context = { ...gridOptions.context, selectedDetail: column };
   let className = '';
-  chevron.classList.forEach((cssClass) => {
+  cellRenderer.classList.forEach((cssClass) => {
     if (cssClass.indexOf('row') != -1) {
       className = cssClass;
     }
@@ -106,12 +105,12 @@ const openDetail = (params, column, chevron) => {
   });
   params.node.setExpanded(true);
   if (gridOptions.context.chevKeyMap) {
-    gridOptions.context.chevKeyMap[chevron.className] = column;
+    gridOptions.context.chevKeyMap[cellRenderer.className] = column;
   } else {
     gridOptions.context.chevKeyMap = {};
-    gridOptions.context.chevKeyMap[chevron.className] = column;
+    gridOptions.context.chevKeyMap[cellRenderer.className] = column;
   }
-  chevron.setAttribute('src', treeOpen);
+  cellRenderer.setAttribute('src', treeOpen);
 
   if(params.node.detailNode)
     params.api.redrawRows({rowNodes:[params.node.detailNode]})
