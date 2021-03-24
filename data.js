@@ -1,6 +1,7 @@
 var rowData = [
   {
     continent: "Europe",
+    id: 0,
     data: [
       { country: "Denmark", sales: 54, cost: 540, product: "A" },
       { country: "Denmark", sales: 55, cost: 550, product: "A" },
@@ -99,6 +100,7 @@ var rowData = [
 
   {
     continent: "South America",
+    id: 1,
     data: [
       { country: "Argentina", sales: 90, cost: 900, product: "A" },
       { country: "Argentina", sales: 89, cost: 890, product: "A" },
@@ -196,6 +198,7 @@ var rowData = [
   },
   {
     continent: "North America",
+    id: 2,
     data: [
       { country: "United States", sales: 174, cost: 1740, product: "A" },
       { country: "United States", sales: 173, cost: 1730, product: "A" },
@@ -338,6 +341,7 @@ var rowData = [
   },
   {
     continent: "Asia",
+    id:3,
     data: [
       { country: "China", sales: 40, cost: 400, product: "A" },
       { country: "China", sales: 39, cost: 390, product: "A" },
@@ -435,6 +439,7 @@ var rowData = [
   },
   {
     continent: "Africa",
+    id: 4,
     data: [
       { country: "Nigeria", sales: 78, cost: 780, product: "A" },
       { country: "Nigeria", sales: 77, cost: 770, product: "A" },
@@ -577,6 +582,7 @@ var rowData = [
   },
   {
     continent: "Australia",
+    id: 5,
     data: [
       { country: "Australia", sales: 81, cost: 810, product: "A" },
       { country: "Australia", sales: 82, cost: 820, product: "A" },
@@ -674,6 +680,7 @@ var rowData = [
   },
   {
     continent: "Antarctica",
+    id: 6,
     data: [
       { country: "Adélie Land", sales: 99, cost: 990, product: "A" },
       { country: "Adélie Land", sales: 98, cost: 980, product: "A" },

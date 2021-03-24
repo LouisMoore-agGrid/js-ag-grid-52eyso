@@ -46,7 +46,7 @@ form p {
   cursor: pointer;
 }
 
-.master-row-container {
+.master-container {
   display: flex;
   align-items: center;
 }
