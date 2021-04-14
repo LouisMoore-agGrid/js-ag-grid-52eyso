@@ -66,7 +66,7 @@ function makeMasterCellRenderer(params, col) {
 
   switch (col) {
     case 'orders':
-      span.innerText = 'orders form';
+      span.innerText = 'Orders Form';
       container.appendChild(chevron);
       break;
     default:

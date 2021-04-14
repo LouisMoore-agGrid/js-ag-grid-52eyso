@@ -123,7 +123,7 @@ class OrdersFormDetail {
       </p>
       <p>
         <label>
-          Sales:<br>
+          Sales Amount:<br>
           <input id="salesInput" type="number" min="0" placeholder="enter new sales here">
         </label>
       </p>
@@ -135,8 +135,8 @@ class OrdersFormDetail {
       </p>
       <p>
         <label>
-          button:<br>
-          <button type="button" id="applyBtn">add record</button>
+          <br>
+          <button type="button" id="applyBtn">Add Record</button>
         </label>
       </p>
     </form>
