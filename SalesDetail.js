@@ -2,7 +2,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import 'ag-grid-enterprise';
 import * as agGrid from 'ag-grid-community'
-class GridDetail {
+
+class SalesDetail {
   constructor(params) {
     this.params = params;
     this.rowData = params.data.data;
@@ -63,4 +64,4 @@ class GridDetail {
 
     return template;
   }
-}export default GridDetail
+}export default SalesDetail

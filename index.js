@@ -1,5 +1,5 @@
 import rowData from './data.js';
-import DetailCellRenderer from './detailCellRenderer';
+import DetailCellRenderer from './DetailCellRenderer';
 import './style.css';
 import 'ag-grid-community/dist/styles/ag-grid.css'; 
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';

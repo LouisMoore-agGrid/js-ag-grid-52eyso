@@ -1,4 +1,4 @@
-class CostFormDetail {
+class OrdersFormDetail {
   constructor(params) {
     this.params = params;
 
@@ -209,4 +209,4 @@ class CostFormDetail {
   getGui() {
     return this.eGui;
   }
-}export default CostFormDetail
+}export default OrdersFormDetail

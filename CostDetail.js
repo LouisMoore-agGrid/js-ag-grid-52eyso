@@ -1,5 +1,5 @@
 import * as agCharts from "ag-charts-community";
-class PieChartDetail {
+class CostDetail {
   constructor(params) {
     this.params = params;
   }
@@ -81,4 +81,4 @@ class PieChartDetail {
     return container;
   }
 }
-export default PieChartDetail;
+export default CostDetail;
